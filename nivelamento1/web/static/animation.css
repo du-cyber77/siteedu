@@ -1,0 +1,287 @@
+/* 
+ * animations.css - Animações para o sistema de Controle Financeiro
+ * Criado em: 28 de maio de 2025
+ */
+
+/* Animação de entrada para cards e painéis */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animação de pulsação para destacar elementos */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.03);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Animação de destaque para valores */
+@keyframes highlight {
+    0% {
+        background-color: transparent;
+    }
+    20% {
+        background-color: rgba(52, 152, 219, 0.2);
+    }
+    100% {
+        background-color: transparent;
+    }
+}
+
+/* Animação para botões */
+@keyframes buttonPop {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Animação para alertas */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Animação para barras de progresso */
+@keyframes progressGrow {
+    from {
+        width: 0%;
+    }
+}
+
+/* Animação para tabelas */
+@keyframes fadeInRow {
+    from {
+        opacity: 0;
+        background-color: rgba(52, 152, 219, 0.1);
+    }
+    to {
+        opacity: 1;
+        background-color: transparent;
+    }
+}
+
+/* Animação para ícones */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Aplicação das animações aos elementos */
+
+/* Cards e painéis com animação de entrada */
+.panel, .card {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+/* Hover em cards com animação de elevação */
+.panel:hover, .card:hover {
+    animation: none; /* Desativa a animação padrão */
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+/* Botões com animação de clique */
+.btn:active {
+    animation: buttonPop 0.3s ease;
+}
+
+/* Alertas com animação de entrada lateral */
+.alert {
+    animation: slideInRight 0.5s ease-out;
+}
+
+/* Barras de progresso com animação de crescimento */
+.progress-bar {
+    animation: progressGrow 1s ease-out;
+}
+
+/* Linhas de tabela com animação de entrada */
+.table-striped tbody tr {
+    animation: fadeInRow 0.5s ease-out;
+}
+.table-striped tbody tr:nth-child(1) { animation-delay: 0.1s; }
+.table-striped tbody tr:nth-child(2) { animation-delay: 0.2s; }
+.table-striped tbody tr:nth-child(3) { animation-delay: 0.3s; }
+.table-striped tbody tr:nth-child(4) { animation-delay: 0.4s; }
+.table-striped tbody tr:nth-child(5) { animation-delay: 0.5s; }
+
+/* Ícones com animações */
+.glyphicon-refresh, .glyphicon-repeat {
+    animation: spin 2s linear infinite;
+}
+
+.glyphicon-bell, .glyphicon-info-sign {
+    animation: pulse 2s infinite;
+}
+
+/* Animação para valores que mudam */
+.text-success, .text-danger {
+    transition: all 0.3s ease;
+}
+
+/* Animação para o card de saldo total */
+.card.bg-success, .card.bg-danger {
+    transition: background-color 0.5s ease;
+}
+
+/* Animação para o menu de navegação */
+.navbar-nav > li > a {
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar-nav > li > a:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #3498db;
+    transition: width 0.3s ease;
+}
+
+.navbar-nav > li > a:hover:after {
+    width: 100%;
+}
+
+/* Animação para formulários */
+.form-control:focus {
+    animation: highlight 1s ease;
+}
+
+/* Animação para dropdown de sugestões */
+.sugestoes-dropdown {
+    animation: fadeInUp 0.3s ease-out;
+}
+
+.sugestao-item {
+    transition: all 0.2s ease;
+}
+
+/* Animação para badges */
+.badge {
+    transition: all 0.3s ease;
+}
+.badge:hover {
+    transform: scale(1.1);
+}
+
+/* Animação para o jumbotron */
+.jumbotron {
+    animation: fadeInUp 0.7s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.jumbotron:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% {
+        left: -100%;
+    }
+    20% {
+        left: 100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* Animação para botões de ação rápida */
+.btn-primary, .btn-success, .btn-info, .btn-warning {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary:after, .btn-success:after, .btn-info:after, .btn-warning:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
+    transition: all 0.5s ease;
+}
+
+.btn-primary:hover:after, .btn-success:hover:after, .btn-info:hover:after, .btn-warning:hover:after {
+    left: 100%;
+}
+
+/* Animação para o contador de pessoas */
+.display-4 {
+    animation: pulse 2s infinite;
+}
+
+/* Classe utilitária para adicionar animação de fade-in */
+.animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Classe utilitária para adicionar animação de fade-in-up */
+.animate-fade-in-up {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+/* Classe utilitária para adicionar animação de pulse */
+.animate-pulse {
+    animation: pulse 2s infinite;
+}
+
+/* Classe utilitária para adicionar animação de bounce */
+.animate-bounce {
+    animation: bounce 2s infinite;
+}
+
